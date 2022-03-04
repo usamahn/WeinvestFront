@@ -20,12 +20,12 @@ jobs:
         uses: actions/setup-node@v1
         with:
           node-version: '16.x'
+          cache-dependency-path: package-lock.json
 
-      - name: npm install, build, and test
-        run: |
-          npm install @craco/craco
-          npm install
-          npm run build 
+      - run: npm install
+      - run: npm run build 
+          
+          
       
       - name: Upload artifact for deployment job
         uses: actions/upload-artifact@v2
